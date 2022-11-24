@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: mysql
+  name: mysql
+  namespace: assign3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mysql
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: mysql
+    spec:
+      containers:
+      - image: 678092784151.dkr.ecr.us-east-1.amazonaws.com/myrepo:mysql
+        name: mysql
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: pw
+        volumeMounts:
+        - mountPath: /data
+          name: mysql-data
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+        
+      
