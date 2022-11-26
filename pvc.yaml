@@ -4,7 +4,7 @@ metadata:
   name: mysql-pvc
   labels:
     name: mysql-pvc
-  namespace: assign3
+  namespace: lab3
 spec:
   storageClassName: standard
   resources:
