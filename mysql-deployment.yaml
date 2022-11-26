@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: mysql
   name: mysql
-  namespace: assign3
+  namespace: lab3
 spec:
   replicas: 1
   selector:
@@ -24,10 +24,10 @@ spec:
         - name: MYSQL_ROOT_PASSWORD
           value: pw
         volumeMounts:
-        - mountPath: /data
-          name: mysql-data
+        - mountPath: /var/lib/mysql
+          name: mysqldb
       volumes:
-        - name: mysql-data
+        - name: mysqldb
           persistentVolumeClaim:
             claimName: mysql-pvc
         
