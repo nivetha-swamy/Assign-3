@@ -16,7 +16,7 @@ spec:
         app.kubernetes.io/name: myapp
     spec:
       containers:
-      - image: 678092784151.dkr.ecr.us-east-1.amazonaws.com/myrepo:my_app
+      - image: 678092784151.dkr.ecr.us-east-1.amazonaws.com/myrepo:myapp
         name: app
         ports:
         - containerPort: 80
